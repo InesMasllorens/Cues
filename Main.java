@@ -9,20 +9,31 @@ public class Main {
         try {
 
 
+            q.push(1);
+            System.out.println(q.size());
+            q.push(2);
+            System.out.println(q.size());
+            q.push(3);
+            System.out.println(q.size());
+            q.push(4);
+            System.out.println(q.size());
+            q.push(5);
+            System.out.println(q.size());
+            Integer primer= q.pop();
+            System.out.println("pop: "+primer);
+            System.out.println(q.size());
+            primer= q.pop();
+            System.out.println("pop: "+primer);
+            System.out.println(q.size());
 
-        q.push(1);
+            q.push(6);
             System.out.println(q.size());
-        q.push(2);
+            q.push(7);
             System.out.println(q.size());
-/*        q.push(3);
-            System.out.println(q.size());
-        q.push(4);
-            System.out.println(q.size());
-        q.push(5);
-            System.out.println(q.size());
-
-          q.push(6);
-*/
+            Integer size=q.size();
+            for(int i=0;i<size;i++){
+                System.out.print(q.pop()+", ");
+            }
 
 
             Class theClass = q.getClass();
@@ -35,12 +46,12 @@ public class Main {
             System.out.println(Arrays.asList(llistaAttr));
 
 
-
-        }
-        catch (FullQueueException fullExp) {
+        } catch (FullQueueException fullExp) {
             //
             System.out.println("EXCEPCIÓ!!");
             fullExp.printStackTrace();
+        } catch (EmptyQueueException e) {
+            throw new RuntimeException(e);
         }
         /*catch (EmptyQueueException empty) {
             System.out.println("EXCEPCIÓ!!");

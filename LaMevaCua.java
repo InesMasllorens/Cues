@@ -10,7 +10,6 @@ public class LaMevaCua<E> implements Queue<E> {
     public void push(E e) throws FullQueueException {
         if (isFull()) throw new FullQueueException();
         elems[p++] = e;
-        this.p++;
     }
 
     private boolean isFull() {
@@ -22,8 +21,12 @@ public class LaMevaCua<E> implements Queue<E> {
     public E pop() throws EmptyQueueException {
         if (isEmpty()) throw new EmptyQueueException();
         E primer = elems[0];
+        ///desplaçament esquerra
+        for (int i=1;i<this.p;i++){
+            elems[i-1]=elems[i];
+        }
 
-///desplaçament esquerra
+
         this.p--;
 
         return primer;
